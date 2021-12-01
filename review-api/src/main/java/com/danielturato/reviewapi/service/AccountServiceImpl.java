@@ -5,9 +5,12 @@ import com.danielturato.reviewapi.dto.AccountDto;
 import com.danielturato.reviewapi.dto.NewAccountDto;
 import com.danielturato.reviewapi.model.Account;
 import com.danielturato.reviewapi.repository.AccountRepository;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
+@Service
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
@@ -33,6 +36,12 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AccountDto createAccount(NewAccountDto newAccountDto) {
         Account account = mapper.newAccountToAccount(newAccountDto);
+        account.setReviews(new ArrayList<>());
+
+        if (accountRepository.findAccountByEmail(account.getEmail()).isPresent()) {
+            // TODO:drt - do exception
+            throw new RuntimeException("Account already exists");
+        }
         //TODO:drt - hash pwd
         account = accountRepository.save(account);
 
