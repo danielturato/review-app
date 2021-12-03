@@ -4,10 +4,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
 
-
-@Document("accounts")
+@Document(collection = "accounts")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,6 +23,4 @@ public class Account {
     private String firstName;
 
     private String lastName;
-
-    private List<Review> reviews;
 }

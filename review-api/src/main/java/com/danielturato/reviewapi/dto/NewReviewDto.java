@@ -1,4 +1,4 @@
 package com.danielturato.reviewapi.dto;
 
-public class ReviewDto {
+public class NewReviewDto {
 }

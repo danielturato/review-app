@@ -2,9 +2,7 @@ package com.danielturato.reviewapi.core;
 
 import com.danielturato.reviewapi.dto.AccountDto;
 import com.danielturato.reviewapi.dto.NewAccountDto;
-import com.danielturato.reviewapi.dto.ReviewDto;
 import com.danielturato.reviewapi.model.Account;
-import com.danielturato.reviewapi.model.Review;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -18,6 +16,4 @@ public interface MapStructMapper {
     @Mapping(source = "firstName", target = "firstName")
     @Mapping(source = "lastName", target = "lastName")
     Account newAccountToAccount(NewAccountDto newAccountDto);
-
-    ReviewDto reviewToReviewDto(Review review);
 }

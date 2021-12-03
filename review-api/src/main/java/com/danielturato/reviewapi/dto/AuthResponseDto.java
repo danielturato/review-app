@@ -1,5 +1,6 @@
 package com.danielturato.reviewapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,14 +10,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountDto {
+public class AuthResponseDto {
 
-    private String id;
-
-    private String email;
-
-    private String firstName;
-
-    private String lastName;
-
+    @JsonProperty("access_token")
+    private String accessToken;
 }
