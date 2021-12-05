@@ -61,7 +61,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 claims = jwtUtil.verify(jwt);
             } catch (Exception ex) {
                 //TODO:drt - throw invalid jwt
-                System.out.println("here3");
             }
 
             String accountId = claims.get("sub");
